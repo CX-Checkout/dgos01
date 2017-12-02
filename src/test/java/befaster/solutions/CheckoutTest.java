@@ -7,6 +7,11 @@ import static org.junit.Assert.assertThat;
 
 public class CheckoutTest {
     @Test
+    public void not_calculate_when_illegal_input() {
+        assertThat(Checkout.checkout("123"), is(-1));
+    }
+
+    @Test
     public void calculate_the_price_when_no_products_in_the_basket() {
         assertThat(Checkout.checkout(""), is(0));
     }
@@ -29,5 +34,7 @@ public class CheckoutTest {
     @Test
     public void calculate_the_price_when_repeated_products_and_offers_in_the_basket() {
         assertThat(Checkout.checkout("AAA"), is(130));
+        assertThat(Checkout.checkout("BB"), is(45));
+        assertThat(Checkout.checkout("AABAB"), is(175));
     }
 }

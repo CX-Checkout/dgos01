@@ -11,6 +11,7 @@ public class Checkout {
 
         HashMap<Character, Offer> offerPerProduct = new HashMap<Character, Offer>();
         offerPerProduct.put('A', new Offer(3, 130));
+        offerPerProduct.put('B', new Offer(2, 45));
 
         HashMap<Character, Integer> quantityPerProduct = new HashMap<>();
 
@@ -30,6 +31,7 @@ public class Checkout {
                 Offer offer = offerPerProduct.get(item);
                 if (offer.matches(quantityPerProduct.get(item))) {
                     total += offer.getPrice();
+                    continue;
                 }
             }
             total += quantityPerProduct.get(item) * pricePerProduct.get(item);

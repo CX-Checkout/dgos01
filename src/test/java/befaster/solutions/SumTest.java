@@ -17,8 +17,8 @@ public class SumTest {
         assertThat(Sum.sum(1, 10), equalTo(11));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void throw_error_when_numbers_not_between_1_to_100() {
-        assertThat(Sum.sum(1, 10), equalTo(11));
+        Sum.sum(101, -1);
     }
 }

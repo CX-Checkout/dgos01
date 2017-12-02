@@ -9,6 +9,9 @@ public class Checkout {
         prices.put('B', 30);
         prices.put('C', 20);
 
+        HashMap<Character, Offer> offersByProduct = new HashMap<Character, Offer>();
+        offersByProduct.put('A', new Offer(3, ));
+
         if (skus.length() == 0) return 0;
         int total = 0;
         for (char item: skus.toCharArray()) {

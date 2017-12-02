@@ -20,4 +20,14 @@ public class CheckoutTest {
     public void calculate_the_price_when_two_products_in_the_basket() {
         assertThat(Checkout.checkout("AB"), is(80));
     }
+
+    @Test
+    public void calculate_the_price_when_repeated_products_in_the_basket() {
+        assertThat(Checkout.checkout("AABCCC"), is(190));
+    }
+
+    @Test
+    public void calculate_the_price_when_repeated_products_and_offers_in_the_basket() {
+        assertThat(Checkout.checkout("AAA"), is(130));
+    }
 }

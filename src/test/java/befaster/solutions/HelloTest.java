@@ -8,6 +8,6 @@ import static org.hamcrest.core.Is.is;
 public class HelloTest {
     @Test
     public void should_return_a_message() {
-        assertThat(Hello.hello("NO_MATTERS"), is("A MESSAGE"));
+        assertThat(Hello.hello("NO_MATTERS"), is("Hello, World!"));
     }
 }

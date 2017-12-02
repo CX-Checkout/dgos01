@@ -11,6 +11,7 @@ public class Checkout {
         pricePerProduct.put('A', 50);
         pricePerProduct.put('B', 30);
         pricePerProduct.put('C', 20);
+        pricePerProduct.put('D', 15);
 
         HashMap<Character, Offer> offerPerProduct = new HashMap<Character, Offer>();
         offerPerProduct.put('A', new Offer(3, 130));

@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 public class Checkout {
     public static Integer checkout(String skus) {
+        if (skus.length() == 0) return 0;
+        if (!skus.matches("[A-Z]+")) return -1;
+
         HashMap<Character, Integer> pricePerProduct = new HashMap<Character, Integer>();
         pricePerProduct.put('A', 50);
         pricePerProduct.put('B', 30);
@@ -14,8 +17,6 @@ public class Checkout {
         offerPerProduct.put('B', new Offer(2, 45));
 
         HashMap<Character, Integer> quantityPerProduct = new HashMap<>();
-
-        if (skus.length() == 0) return 0;
         for (char item: skus.toCharArray()) {
             if (!quantityPerProduct.containsKey(item)) {
                 quantityPerProduct.put(item, 1);

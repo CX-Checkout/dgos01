@@ -29,14 +29,16 @@ public class Checkout {
 
         int total = 0;
         for (char item: quantityPerProduct.keySet()) {
+            Integer quantity = quantityPerProduct.get(item);
             if (offerPerProduct.containsKey(item)) {
                 Offer offer = offerPerProduct.get(item);
-                if (offer.matches(quantityPerProduct.get(item))) {
-                    total += offer.getPrice();
+                if (offer.matches(quantity)) {
+                    total += offer.getOfferPrice(quantity);
+                    total += offer.getOutOfOfferProducts(quantity) * pricePerProduct.get(item);
                     continue;
                 }
             }
-            total += quantityPerProduct.get(item) * pricePerProduct.get(item);
+            total += quantity * pricePerProduct.get(item);
         }
         return total;
     }

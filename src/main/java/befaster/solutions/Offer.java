@@ -10,10 +10,15 @@ public class Offer {
     }
 
     public boolean matches(int quantity) {
-        return this.quantity >= quantity;
+        return quantity >= this.quantity;
     }
 
-    public int getPrice() {
-        return price;
+    public int getOfferPrice(int quantity) {
+        int packs = quantity / this.quantity;
+        return packs * price;
+    }
+
+    public int getOutOfOfferProducts(Integer quantity) {
+        return quantity % this.quantity;
     }
 }

@@ -10,7 +10,7 @@ public class Offer {
     }
 
     public boolean matches(int quantity) {
-        return this.quantity == quantity;
+        return this.quantity >= quantity;
     }
 
     public int getPrice() {

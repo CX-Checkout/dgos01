@@ -35,6 +35,9 @@ public class CheckoutTest {
     @Test
     public void calculate_the_price_when_repeated_products_and_offers_in_the_basket() {
         assertThat(Checkout.checkout("AAA"), is(130));
+        assertThat(Checkout.checkout("AAAA"), is(180));
+        assertThat(Checkout.checkout("AAAAA"), is(230));
+        assertThat(Checkout.checkout("AAAAAA"), is(260));
         assertThat(Checkout.checkout("BB"), is(45));
         assertThat(Checkout.checkout("AABAB"), is(175));
     }

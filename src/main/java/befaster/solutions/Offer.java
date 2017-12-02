@@ -8,4 +8,12 @@ public class Offer {
         this.quantity = quantity;
         this.price = price;
     }
+
+    public boolean matches(int quantity) {
+        return this.quantity == quantity;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }

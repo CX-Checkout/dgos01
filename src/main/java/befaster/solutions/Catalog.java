@@ -9,12 +9,16 @@ public class Catalog {
 
     public Catalog() {
         values = new HashMap<>();
-        values.put('A', new ProductInfo(50, Optional.of(new Offer(3, 130))));
-        values.put('B', new ProductInfo(30, Optional.of(new Offer(2, 45))));
+        ProductInfo AInfo = new ProductInfo(50, Optional.of(new Offer(3, 130)));
+        AInfo.addDiscount(new Discount(3, 20));
+        values.put('A', AInfo);
+        ProductInfo BInfo = new ProductInfo(30, Optional.of(new Offer(2, 45)));
+        BInfo.addDiscount(new Discount(2, 15));
+        values.put('B', BInfo);
+
         values.put('C', new ProductInfo(20));
         values.put('D', new ProductInfo(15));
     }
-
 
     public Integer getPriceFor(char item) {
         return values.get(item).getPrice();

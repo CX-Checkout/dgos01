@@ -8,18 +8,19 @@ public class Checkout {
         Basket basket = new Basket(skus);
 
         int total = 0;
-        for (char item: basket.getItems()) {
-            Integer quantity = basket.getQuantityFor(item);
-            if (catalog.containsOfferFor(item)) {
-                Offer offer = catalog.getOfferFor(item);
-                if (offer.matches(quantity)) {
-                    total += offer.getOfferPrice(quantity);
-                    total += offer.getOutOfOfferProducts(quantity) * catalog.getPriceFor(item);
-                    continue;
-                }
-            }
-            total += quantity * catalog.getPriceFor(item);
-        }
+//        for (char item: basket.getItems()) {
+//            Integer quantity = basket.getQuantityFor(item);
+//            if (catalog.containsOfferFor(item)) {
+//                Offer offer = catalog.getOfferFor(item);
+//                if (offer.matches(quantity)) {
+//                    total += offer.getOfferPrice(quantity);
+//                    total += offer.getOutOfOfferProducts(quantity) * catalog.getPriceFor(item);
+//                    continue;
+//                }
+//            }
+//            total += quantity * catalog.getPriceFor(item);
+//        }
+        
         return total;
     }
 

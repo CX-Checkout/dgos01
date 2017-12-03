@@ -10,20 +10,16 @@ public class Catalog {
         values = new HashMap<>();
 
         ProductInfo productInfo = new ProductInfo(50);
-        productInfo.addDiscount(new AmountDiscount(5, 50));
-        productInfo.addDiscount(new AmountDiscount(3, 20));
+        productInfo.addDiscount(5, 50);
+        productInfo.addDiscount(3, 20);
         values.put('A', productInfo);
 
         productInfo = new ProductInfo(30);
-        productInfo.addDiscount(new AmountDiscount(2, 15));
+        productInfo.addDiscount(2, 15);
         values.put('B', productInfo);
 
         values.put('C', new ProductInfo(20));
         values.put('D', new ProductInfo(15));
-
-        productInfo = new ProductInfo(40);
-        productInfo.addDiscount(new ProductDiscount(2, 'B'));
-        values.put('E', productInfo);
     }
 
     public Integer getPriceFor(char item) {

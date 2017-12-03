@@ -35,4 +35,9 @@ public class Basket {
         int quantity = quantityPerProduct.get(item);
         quantityPerProduct.replace(item, quantity - numberToRemove);
     }
+
+    public void add(char item, int numberToAdd) {
+        int quantity = quantityPerProduct.get(item);
+        quantityPerProduct.replace(item, quantity + numberToAdd);
+    }
 }

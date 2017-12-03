@@ -20,6 +20,10 @@ public class Catalog {
 
         values.put('C', new ProductInfo(20));
         values.put('D', new ProductInfo(15));
+
+        productInfo = new ProductInfo(40);
+        productInfo.addProductDiscount(2, )
+        values.put('E', productInfo);
     }
 
     public Integer getPriceFor(char item) {

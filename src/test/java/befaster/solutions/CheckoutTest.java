@@ -47,4 +47,9 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("AAAAA"), is(200));
         assertThat(Checkout.checkout("AAAAAAAA"), is(330));
     }
+
+    @Test
+    public void calculate_the_price_when_offer_affects_to_another_product() {
+        assertThat(Checkout.checkout("BEE"), is());
+    }
 }

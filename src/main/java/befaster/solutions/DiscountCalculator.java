@@ -31,8 +31,16 @@ public class DiscountCalculator {
         for (char item : basketForDiscounts.getItems()) {
             Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
             Discounts amountDiscounts = catalog.getDiscountsFor(item);
-            if (!amountDiscounts.isEmpty() && applyFor(amountDiscounts, numberOfItems)) {
-                total += getAmountToDiscountFor(amountDiscounts, numberOfItems);
+            if (amountDiscounts.isEmpty())
+                continue;
+            if (applyFor(amountDiscounts, numberOfItems)) {
+                int amountToDiscount = 0;
+                int numberOfItemsConsidered = numberOfItems;
+                for (AmountDiscount discount : amountDiscounts.getValues()) {
+                    amountToDiscount += discount.getAmountToDiscount(numberOfItemsConsidered);
+                    numberOfItemsConsidered -= discount.getNumberOfAffectedItems(numberOfItemsConsidered);
+                }
+                total += amountToDiscount;
             }
         }
         return total;
@@ -45,13 +53,4 @@ public class DiscountCalculator {
         return false;
     }
 
-    private int getAmountToDiscountFor(Discounts discounts, int numberOfItems) {
-        int amountToDiscount = 0;
-        int numberOfItemsConsidered = numberOfItems;
-        for (AmountDiscount discount : discounts.getValues()) {
-            amountToDiscount += discount.getAmountToDiscount(numberOfItemsConsidered);
-            numberOfItemsConsidered -= discount.getNumberOfAffectedItems(numberOfItemsConsidered);
-        }
-        return amountToDiscount;
-    }
 }

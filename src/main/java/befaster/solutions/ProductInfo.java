@@ -33,4 +33,12 @@ public class ProductInfo {
     public Offer getOffer() {
         return offer.get();
     }
+
+    public boolean hasDiscount() {
+        return discount.isPresent();
+    }
+
+    public Optional<Discount> getDiscount() {
+        return discount;
+    }
 }

@@ -28,7 +28,15 @@ public class Catalog {
         return values.get(item).hasOffer();
     }
 
+    public boolean containsDiscountFor(char item) {
+        return values.get(item).hasDiscount();
+    }
+
     public Offer getOfferFor(char item) {
         return values.get(item).getOffer();
+    }
+
+    public Discount getDiscountFor(char item) {
+        return values.get(item).getDiscount().get();
     }
 }

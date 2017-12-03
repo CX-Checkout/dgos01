@@ -12,10 +12,10 @@ public class DiscountCalculator {
         int total = 0;
 
         for (char item : basketForDiscounts.getItems()) {
-            Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
             if (!catalog.hasProductDiscount(item))
                 continue;
             ProductDiscount productDiscount = catalog.getProductDiscount(item);
+            Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
             if (productDiscount.apply(item, numberOfItems)) {
                 char itemToDiscount = productDiscount.getItemToDiscount();
                 if (basketForDiscounts.contains(itemToDiscount)) {

@@ -22,4 +22,8 @@ public class PackDiscount {
     public char[] getItems() {
         return items;
     }
+
+    public char getItemForIndex(int index) {
+        return items[index];
+    }
 }

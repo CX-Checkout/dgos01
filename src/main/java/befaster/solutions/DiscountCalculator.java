@@ -36,8 +36,8 @@ public class DiscountCalculator {
                 List<Character> candidates = new ArrayList<>();
                 candidates.add(item);
                 int index = 0;
-                while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getNumberOfItems()) {
-                    char otherItem = packDiscount.getItems()[index];
+                while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getItems().length) {
+                    char otherItem = packDiscount.getItemForIndex(index);
                     if (item != otherItem) {
                         if (basket.contains(otherItem) && (basket.getNumberOfItemsFor(otherItem) > 0)) {
                             candidates.add(otherItem);
@@ -45,14 +45,14 @@ public class DiscountCalculator {
                     }
                     index++;
                 }
-                if (candidates.size() == packDiscount.getNumberOfItems()) {
-                    int priceForCandidates = 0;
-                    for (char candidate : candidates) {
-                        priceForCandidates += catalog.getPriceFor(candidate);
-                        basket.remove(candidate, 1);
-                    }
-                    total += (priceForCandidates - packDiscount.getPricePerPack());
-                } else break;
+                if (candidates.size() != packDiscount.getNumberOfItems())
+                    break;
+                int priceForCandidates = 0;
+                for (char candidate : candidates) {
+                    priceForCandidates += catalog.getPriceFor(candidate);
+                    basket.remove(candidate, 1);
+                }
+                total += (priceForCandidates - packDiscount.getPricePerPack());
             }
         }
 

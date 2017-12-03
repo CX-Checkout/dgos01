@@ -5,12 +5,11 @@ import java.util.List;
 
 public class ProductInfo {
     private int pricePerUnit;
-    private List<Discount> discounts;
     private Discounts discounts;
 
     public ProductInfo(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
-        this.discounts = new ArrayList<>();
+        this.discounts = new Discounts();
     }
 
     public int getPricePerUnit() {
@@ -21,7 +20,7 @@ public class ProductInfo {
         return discounts.size() > 0;
     }
 
-    public List<Discount> getDiscounts() {
+    public Discounts getDiscounts() {
         return discounts;
     }
 

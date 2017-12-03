@@ -10,14 +10,13 @@ public class Discounts {
         values = new ArrayList<>();
     }
 
-    public void add(Discount discount) {
-        values.add(discount);
+    public boolean isEmpty() {
+        return values.size() == 0;
     }
 
-    public int size() {
-        return values.size();
+    public void add(int numberOfItems, int quantityToDiscount) {
+        values.add(new Discount(numberOfItems, quantityToDiscount));
     }
-
     public boolean applyFor(int numberOfItems) {
         for (Discount discount : values)
             if (numberOfItems >= discount.getNumberOfItems())

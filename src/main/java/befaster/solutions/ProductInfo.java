@@ -1,8 +1,5 @@
 package befaster.solutions;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ProductInfo {
     private int pricePerUnit;
     private Discounts discounts;
@@ -16,20 +13,8 @@ public class ProductInfo {
         return pricePerUnit;
     }
 
-    private boolean hasDiscounts() {
-        return discounts.size() > 0;
-    }
-
-    public Discounts getDiscounts() {
-        return discounts;
-    }
-
-    public void addDiscount(Discount discount) {
-        this.discounts.add(discount);
-    }
-
     public boolean hasDiscountsAndApplyFor(Integer numberOfItems) {
-        return hasDiscounts() && discounts.applyFor(numberOfItems);
+        return !discounts.isEmpty() && discounts.applyFor(numberOfItems);
     }
 
     public int getAmountToDiscountFor(int numberOfItems) {
@@ -37,6 +22,6 @@ public class ProductInfo {
     }
 
     public void addDiscount(int numberOfItems, int quantityToDiscount) {
-        discounts.add(new Discount(numberOfItems, quantityToDiscount));
+        discounts.add(numberOfItems, quantityToDiscount);
     }
 }

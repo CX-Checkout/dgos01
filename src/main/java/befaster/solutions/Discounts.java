@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Discounts {
-    List<Discount> values;
+    List<AmountDiscount> values;
 
     public Discounts() {
         values = new ArrayList<>();
@@ -15,10 +15,10 @@ public class Discounts {
     }
 
     public void add(int numberOfItems, int quantityToDiscount) {
-        values.add(new Discount(numberOfItems, quantityToDiscount));
+        values.add(new AmountDiscount(numberOfItems, quantityToDiscount));
     }
 
-    public List<Discount> getValues() {
+    public List<AmountDiscount> getValues() {
         return values;
     }
 }

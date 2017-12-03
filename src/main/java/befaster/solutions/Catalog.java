@@ -22,7 +22,7 @@ public class Catalog {
         values.put('D', new ProductInfo(15));
 
         productInfo = new ProductInfo(40);
-        productInfo.addProductDiscount(2, )
+        productInfo.addProductDiscount(2, 'B');
         values.put('E', productInfo);
     }
 
@@ -33,6 +33,6 @@ public class Catalog {
 
     public Discounts getDiscountsFor(char item) {
         ProductInfo productInfo = values.get(item);
-        return productInfo.getDiscounts();
+        return productInfo.getAmountDiscounts();
     }
 }

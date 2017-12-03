@@ -2,11 +2,12 @@ package befaster.solutions;
 
 public class ProductInfo {
     private int pricePerUnit;
-    private Discounts discounts;
+    private Discounts amountDiscounts;
+    private ProductDiscount productDiscount;
 
     public ProductInfo(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
-        this.discounts = new Discounts();
+        this.amountDiscounts = new Discounts();
     }
 
     public int getPricePerUnit() {
@@ -14,10 +15,14 @@ public class ProductInfo {
     }
 
     public void addDiscount(int numberOfItems, int quantityToDiscount) {
-        discounts.add(numberOfItems, quantityToDiscount);
+        amountDiscounts.add(numberOfItems, quantityToDiscount);
     }
 
-    public Discounts getDiscounts() {
-        return discounts;
+    public Discounts getAmountDiscounts() {
+        return amountDiscounts;
+    }
+
+    public void addProductDiscount(int numberOfItems, char itemToDiscount) {
+        productDiscount = new ProductDiscount(numberOfItems, itemToDiscount);
     }
 }

@@ -14,8 +14,8 @@ public class Discounts {
         return values.size() == 0;
     }
 
-    public void add(int numberOfItems, int quantityToDiscount) {
-        values.add(new Discount(numberOfItems, quantityToDiscount));
+    public void add(Discount discount) {
+        values.add(discount);
     }
 
     public List<Discount> getValues() {

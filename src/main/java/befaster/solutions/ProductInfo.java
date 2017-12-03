@@ -14,10 +14,14 @@ public class ProductInfo {
     }
 
     public void addDiscount(int numberOfItems, int quantityToDiscount) {
-        discounts.add(numberOfItems, quantityToDiscount);
+        discounts.add(new Discount(numberOfItems, quantityToDiscount));
     }
 
     public Discounts getDiscounts() {
         return discounts;
     }
+
+//    public void addProductDiscount(int numberOfItems, char productToDiscount) {
+//        discounts.add(new ProductDiscount(numberOfItems, productToDiscount));
+//    }
 }

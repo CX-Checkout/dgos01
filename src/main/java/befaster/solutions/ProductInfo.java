@@ -13,15 +13,11 @@ public class ProductInfo {
         return pricePerUnit;
     }
 
-    public boolean hasDiscountsAndApplyFor(Integer numberOfItems) {
-        return !discounts.isEmpty() && discounts.applyFor(numberOfItems);
-    }
-
-    public int getAmountToDiscountFor(int numberOfItems) {
-        return discounts.getAmountToDiscountFor(numberOfItems);
-    }
-
     public void addDiscount(int numberOfItems, int quantityToDiscount) {
         discounts.add(numberOfItems, quantityToDiscount);
+    }
+
+    public Discounts getDiscounts() {
+        return discounts;
     }
 }

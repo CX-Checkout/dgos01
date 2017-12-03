@@ -27,13 +27,7 @@ public class Catalog {
         return productInfo.getPricePerUnit();
     }
 
-    public boolean containsDiscountFor(char item, Integer numberOfItems) {
-        ProductInfo productInfo = values.get(item);
-        return productInfo.hasDiscountsAndApplyFor(numberOfItems);
-    }
-
-    public int getAmountToDiscountFor(char item, Integer numberOfItems) {
-        ProductInfo productInfo = values.get(item);
-        return productInfo.getAmountToDiscountFor(numberOfItems);
+    public Discounts getDiscountsFor(char item) {
+        return values.get(item).getDiscounts();
     }
 }

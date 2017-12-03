@@ -18,24 +18,6 @@ public class Discounts {
         values.add(new Discount(numberOfItems, quantityToDiscount));
     }
 
-    public boolean applyFor(int numberOfItems) {
-        for (Discount discount : values)
-            if (numberOfItems >= discount.getNumberOfItems())
-                return true;
-        return false;
-    }
-
-    public int getAmountToDiscountFor(int numberOfItems) {
-        int amountToDiscount = 0;
-        int numberOfItemsConsidered = numberOfItems;
-        for (Discount discount: values) {
-            int packs = numberOfItemsConsidered / discount.getNumberOfItems();
-            numberOfItemsConsidered -= packs * discount.getNumberOfItems();
-            amountToDiscount += packs * discount.getAmountToDiscountPerPack();
-        }
-        return amountToDiscount;
-    }
-
     public List<Discount> getValues() {
         return values;
     }

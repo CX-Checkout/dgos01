@@ -33,16 +33,18 @@ public class DiscountCalculator {
                 continue;
             PackDiscount packDiscount = catalog.getPackDiscount(item);
             while (basket.getNumberOfItemsFor(item) > 0) {
+                Basket internalBasket = basket;
                 List<Character> candidates = new ArrayList<>();
                 candidates.add(item);
                 int index = 0;
                 while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getSizeOfPossibleItems()) {
                     char possibleCandidate = packDiscount.getItemForIndex(index);
-                    if (item != possibleCandidate) {
-                        if (basket.contains(possibleCandidate)) {
+//                    if (item != possibleCandidate) {
+                        if (internalBasket.contains(possibleCandidate)) {
+                            internalBasket.remove(possibleCandidate, 1);
                             candidates.add(possibleCandidate);
                         }
-                    }
+//                    }
                     index++;
                 }
                 if (candidates.size() != packDiscount.getNumberOfItems())

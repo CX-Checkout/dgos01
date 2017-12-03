@@ -54,5 +54,7 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("BEEEE"), is(160));
         assertThat(Checkout.checkout("BBEEEE"), is(160));
         assertThat(Checkout.checkout("BBBEEEE"), is(190));
+        assertThat(Checkout.checkout("FFF"), is(20));
+        assertThat(Checkout.checkout("FFFBEE"), is(100));
     }
 }

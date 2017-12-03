@@ -65,8 +65,15 @@ public class Catalog {
         productInfo.addProductDiscount(3, 'Q');
         values.put('R', productInfo);
 
-        values.put('S', new ProductInfo(20));
-        values.put('T', new ProductInfo(20));
+        PackDiscount packDiscount = new PackDiscount(3, 45, 'Z', 'S', 'T', 'Y', 'X');
+
+        productInfo = new ProductInfo(20);
+        productInfoº.addPackDiscount(packDiscount);
+        values.put('S', productInfo);
+
+        productInfo = new ProductInfo(20);
+        productInfo.addPackDiscount(packDiscount);
+        values.put('T', productInfo);
 
         productInfo = new ProductInfo(40);
         productInfo.addProductDiscount(3, 'U');

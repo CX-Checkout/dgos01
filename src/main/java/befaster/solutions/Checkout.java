@@ -2,8 +2,7 @@ package befaster.solutions;
 
 public class Checkout {
     public static Integer checkout(String skus) {
-//        if (skus.length() == 0) return 0;
-        if (!skus.matches("[A-Z]*")) return -1;
+        if (!isValid(skus)) return -1;
 
         Catalog catalog = new Catalog();
         Basket basket = new Basket(skus);
@@ -22,5 +21,9 @@ public class Checkout {
             total += quantity * catalog.getPriceFor(item);
         }
         return total;
+    }
+
+    private static boolean isValid(String skus) {
+        return skus.matches("[A-Z]*");
     }
 }

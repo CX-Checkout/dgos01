@@ -10,17 +10,17 @@ public class AmountDiscount extends Discount {
     }
 
     @Override
-    public boolean apply(int numberOfItems) {
+    public boolean apply(int numberOfItems, Basket basket) {
         return numberOfItems >= this.numberOfItems;
     }
 
     @Override
-    public int getNumberOfAffectedItems(int numberOfItems) {
+    public int getNumberOfAffectedItems(int numberOfItems, Basket basket) {
         return getPacksNumber(numberOfItems) * this.numberOfItems;
     }
 
     @Override
-    public int getAmountToDiscount(int numberOfItems) {
+    public int getAmountToDiscount(int numberOfItems, Basket basket) {
         return getPacksNumber(numberOfItems) * this.amountToDiscountPerPack;
     }
 

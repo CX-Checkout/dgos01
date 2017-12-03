@@ -33,10 +33,11 @@ public class DiscountCalculator {
             if (amountDiscounts.isEmpty())
                 continue;
             for (AmountDiscount discount : amountDiscounts.getValues()) {
-                    Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
-                while (discount.apply(numberOfItemsConsidered)) {
+                Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
+                while (discount.apply(numberOfItems)) {
                     total += discount.getAmountToDiscountPerPack();
                     basketForDiscounts.remove(item, discount.getNumberOfItems());
+                    numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
                 }
             }
         }

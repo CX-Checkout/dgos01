@@ -68,7 +68,7 @@ public class Catalog {
         PackDiscount packDiscount = new PackDiscount(3, 45, 'Z', 'S', 'T', 'Y', 'X');
 
         productInfo = new ProductInfo(20);
-        productInfoº.addPackDiscount(packDiscount);
+        productInfo.addPackDiscount(packDiscount);
         values.put('S', productInfo);
 
         productInfo = new ProductInfo(20);
@@ -85,9 +85,18 @@ public class Catalog {
         values.put('V', productInfo);
 
         values.put('W', new ProductInfo(20));
-        values.put('X', new ProductInfo(17));
-        values.put('Y', new ProductInfo(20));
-        values.put('Z', new ProductInfo(21));
+
+        productInfo = new ProductInfo(17);
+        productInfo.addPackDiscount(packDiscount);
+        values.put('X', productInfo);
+
+        productInfo = new ProductInfo(20);
+        productInfo.addPackDiscount(packDiscount);
+        values.put('Y', productInfo);
+
+        productInfo = new ProductInfo(21);
+        productInfo.addPackDiscount(packDiscount);
+        values.put('Z', productInfo);
     }
 
     public Integer getPriceFor(char item) {

@@ -42,4 +42,12 @@ public class ProductInfo {
     public void addPackDiscount(PackDiscount packDiscount) {
         this.packDiscount = Optional.of(packDiscount);
     }
+
+    public boolean hasPackDiscount() {
+        return packDiscount.isPresent();
+    }
+
+    public PackDiscount getPackDiscount() {
+        return packDiscount.get();
+    }
 }

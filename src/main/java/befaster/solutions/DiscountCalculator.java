@@ -25,6 +25,13 @@ public class DiscountCalculator {
             }
         }
 
+//        for (char item : basket.getItems()) {
+//            if (!catalog.hasPackDiscount(item))
+//                continue;
+//            PackDiscount packDiscount = catalog.getPackDiscount(item);
+//            while (packDiscount.apply(basket.getItems()))
+//        }
+
         for (char item : basket.getItems()) {
             Discounts amountDiscounts = catalog.getDiscountsFor(item);
             if (amountDiscounts.isEmpty())

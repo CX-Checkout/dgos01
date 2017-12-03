@@ -118,4 +118,14 @@ public class Catalog {
         ProductInfo productInfo = values.get(item);
         return productInfo.getProductDiscount();
     }
+
+    public boolean hasPackDiscount(char item) {
+        ProductInfo productInfo = values.get(item);
+        return productInfo.hasPackDiscount();
+    }
+
+    public PackDiscount getPackDiscount(char item) {
+        ProductInfo productInfo = values.get(item);
+        return productInfo.getPackDiscount();
+    }
 }

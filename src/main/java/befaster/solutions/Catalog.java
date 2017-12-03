@@ -22,7 +22,11 @@ public class Catalog {
         values.put('D', new ProductInfo(15));
 
         productInfo = new ProductInfo(40);
-        productInfo.addDiscount(2, );
+        productInfo.addProductDiscount(2, 'B');
+
+        values.put('E', )
+
+
     }
 
     public Integer getPriceFor(char item) {

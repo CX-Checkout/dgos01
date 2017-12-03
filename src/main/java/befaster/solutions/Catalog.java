@@ -10,8 +10,8 @@ public class Catalog {
         values = new HashMap<>();
 
         ProductInfo productInfo = new ProductInfo(50);
-        productInfo.addDiscount(new Discount(5, 50));
         productInfo.addDiscount(new Discount(3, 20));
+        productInfo.addDiscount(new Discount(5, 50));
         values.put('A', productInfo);
 
         productInfo = new ProductInfo(30);

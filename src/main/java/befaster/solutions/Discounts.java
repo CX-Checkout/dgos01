@@ -17,4 +17,16 @@ public class Discounts {
     public int size() {
         return values.size();
     }
+
+    public boolean applyFor(int numberOfItems) {
+        for (Discount discount : values)
+            if (numberOfItems >= discount.getNumberOfItems())
+                return true;
+        return false;
+    }
+
+    public int getAmountToDiscountFor(int numberOfItems) {
+        int packs = numberOfItems / this.values.get(0).getNumberOfItems();
+        return packs * this.values.get(0).getQuantityToDiscount();
+    }
 }

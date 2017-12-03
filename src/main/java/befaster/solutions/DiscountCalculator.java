@@ -31,15 +31,15 @@ public class DiscountCalculator {
         for (char item : basket.getItems()) {
             if (!catalog.hasPackDiscount(item))
                 continue;
+            PackDiscount packDiscount = catalog.getPackDiscount(item);
             while (basket.getNumberOfItemsFor(item) > 0) {
-                PackDiscount packDiscount = catalog.getPackDiscount(item);
                 List<Character> candidates = new ArrayList<>();
                 candidates.add(item);
                 int index = 0;
                 while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getNumberOfItems()) {
                     char otherItem = packDiscount.getItems()[index];
                     if (item != otherItem) {
-                        if (basket.contains(otherItem) && basket.getNumberOfItemsFor(otherItem) > 0) {
+                        if (basket.contains(otherItem) && (basket.getNumberOfItemsFor(otherItem) > 0)) {
                             candidates.add(otherItem);
                         }
                     }

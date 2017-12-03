@@ -50,6 +50,9 @@ public class CheckoutTest {
 
     @Test
     public void calculate_the_price_when_offer_affects_to_another_product() {
-        assertThat(Checkout.checkout("BEE"), is());
+        assertThat(Checkout.checkout("BEE"), is(80));
+        assertThat(Checkout.checkout("BEEEE"), is(160));
+        assertThat(Checkout.checkout("BBEEEE"), is(160));
+        assertThat(Checkout.checkout("BBBEEEE"), is(190));
     }
 }

@@ -19,11 +19,11 @@ public class PackDiscount {
         return pricePerPack;
     }
 
-    public char[] getItems() {
-        return items;
-    }
-
     public char getItemForIndex(int index) {
         return items[index];
+    }
+
+    public int getSizeOfPossibleItems() {
+        return items.length;
     }
 }

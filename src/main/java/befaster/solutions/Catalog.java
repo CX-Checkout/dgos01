@@ -28,6 +28,8 @@ public class Catalog {
         productInfo = new ProductInfo(10);
         productInfo.addProductDiscount(2, 'F');
         values.put('F', productInfo);
+
+        
     }
 
     public Integer getPriceFor(char item) {

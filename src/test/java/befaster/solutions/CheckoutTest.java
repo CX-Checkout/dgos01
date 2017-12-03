@@ -81,10 +81,17 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("QQQ"), is(80));
         assertThat(Checkout.checkout("QQQQ"), is(110));
         assertThat(Checkout.checkout("R"), is(50));
+        assertThat(Checkout.checkout("RRRQ"), is(150));
+        assertThat(Checkout.checkout("RRRQQ"), is(180));
         assertThat(Checkout.checkout("S"), is(30));
         assertThat(Checkout.checkout("T"), is(20));
         assertThat(Checkout.checkout("U"), is(40));
+        assertThat(Checkout.checkout("UU"), is(80));
+        assertThat(Checkout.checkout("UUU"), is(80));
         assertThat(Checkout.checkout("V"), is(50));
+        assertThat(Checkout.checkout("VV"), is(90));
+        assertThat(Checkout.checkout("VVV"), is(130));
+        assertThat(Checkout.checkout("VVVV"), is(180));
         assertThat(Checkout.checkout("W"), is(20));
         assertThat(Checkout.checkout("X"), is(90));
         assertThat(Checkout.checkout("Y"), is(10));

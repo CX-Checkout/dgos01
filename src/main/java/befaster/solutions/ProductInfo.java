@@ -24,4 +24,8 @@ public class ProductInfo {
     public void addDiscount(int numberOfItems, int quantityToDiscount) {
         discounts.add(numberOfItems, quantityToDiscount);
     }
+
+    public Discounts getDiscounts() {
+        return discounts;
+    }
 }

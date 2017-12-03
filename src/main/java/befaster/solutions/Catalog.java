@@ -36,4 +36,9 @@ public class Catalog {
         ProductInfo productInfo = values.get(item);
         return productInfo.getAmountToDiscountFor(numberOfItems);
     }
+
+    public Discounts getDiscountsFor(char item) {
+        ProductInfo productInfo = values.get(item);
+        return productInfo.getDiscounts();
+    }
 }

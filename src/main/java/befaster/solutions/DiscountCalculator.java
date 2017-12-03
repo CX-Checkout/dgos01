@@ -31,8 +31,8 @@ public class DiscountCalculator {
         int amountToDiscount = 0;
         int numberOfItemsConsidered = numberOfItems;
         for (Discount discount: discounts.getValues()) {
-            numberOfItemsConsidered -= numberOfItemsConsidered / discount.getNumberOfItems() * discount.getNumberOfItems();
-            amountToDiscount += numberOfItemsConsidered / discount.getNumberOfItems() * discount.getAmountToDiscountPerPack();
+            amountToDiscount += discount.getAmountToDiscount(numberOfItemsConsidered);
+            numberOfItemsConsidered -= discount.getNumberOfAffectedItems(numberOfItemsConsidered);
         }
         return amountToDiscount;
     }

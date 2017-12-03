@@ -17,6 +17,7 @@ public class Checkout {
         offerPerProduct.put('A', new Offer(3, 130));
         offerPerProduct.put('B', new Offer(2, 45));
 
+        Basket basket = new Basket(skus);
         HashMap<Character, Integer> quantityPerProduct = new HashMap<>();
         for (char item: skus.toCharArray()) {
             if (!quantityPerProduct.containsKey(item)) {

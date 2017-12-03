@@ -12,7 +12,7 @@ public class DiscountCalculator {
         for (char item: basket.getItems()) {
             Integer numberOfItems = basket.getNumberOfItemsFor(item);
             if (catalog.containsDiscountFor(item, numberOfItems)) {
-                total += catalog.getDiscountFor(item, numberOfItems);
+                total += catalog.getAmountToDiscountFor(item, numberOfItems);
                 continue;
             }
         }

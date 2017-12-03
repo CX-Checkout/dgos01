@@ -2,18 +2,18 @@ package befaster.solutions;
 
 public class Discount {
     private final int numberOfItems;
-    private final int quantityToDiscount;
+    private final int amountToDiscountPerPack;
 
-    public Discount(int numberOfItems, int quantityToDiscount) {
+    public Discount(int numberOfItems, int amountToDiscountPerPack) {
         this.numberOfItems = numberOfItems;
-        this.quantityToDiscount = quantityToDiscount;
+        this.amountToDiscountPerPack = amountToDiscountPerPack;
     }
 
     public int getNumberOfItems() {
         return numberOfItems;
     }
 
-    public int getQuantityToDiscount() {
-        return quantityToDiscount;
+    public int getAmountToDiscountPerPack() {
+        return amountToDiscountPerPack;
     }
 }

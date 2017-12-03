@@ -32,7 +32,7 @@ public class Catalog {
         return productInfo.hasDiscountsAndApplyFor(numberOfItems);
     }
 
-    public int getDiscountFor(char item, Integer numberOfItems) {
+    public int getAmountToDiscountFor(char item, Integer numberOfItems) {
         ProductInfo productInfo = values.get(item);
         return productInfo.getAmountToDiscountFor(numberOfItems);
     }

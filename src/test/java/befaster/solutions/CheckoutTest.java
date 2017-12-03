@@ -103,14 +103,15 @@ public class CheckoutTest {
     public void calculate_the_price_for_a_pack() {
         assertThat(Checkout.checkout("ZST"), is(45));
         assertThat(Checkout.checkout("ZTY"), is(45));
+        assertThat(Checkout.checkout("SSS"), is(45));
+        assertThat(Checkout.checkout("ZZZ"), is(45));
+        assertThat(Checkout.checkout("SSSZ"), is(65));
+        assertThat(Checkout.checkout("ZZZZZZ"), is(90));
         assertThat(Checkout.checkout("ZTYZTY"), is(90));
         assertThat(Checkout.checkout("ZTYZTYZTY"), is(135));
         assertThat(Checkout.checkout("ZTYZTYXTY"), is(135));
         assertThat(Checkout.checkout("ZTYA"), is(95));
         assertThat(Checkout.checkout("ZTYBB"), is(90));
         assertThat(Checkout.checkout("ZXSYTS"), is(90));
-        assertThat(Checkout.checkout("SSS"), is(45));
-        assertThat(Checkout.checkout("SSSZ"), is(65));
-        assertThat(Checkout.checkout("ZZZ"), is(45));
     }
 }

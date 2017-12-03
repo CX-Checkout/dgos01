@@ -13,8 +13,8 @@ public class ProductInfo {
         return pricePerUnit;
     }
 
-    public void addDiscount(int numberOfItems, int quantityToDiscount) {
-        discounts.add(new Discount(numberOfItems, quantityToDiscount));
+    public void addDiscount(Discount discount) {
+        discounts.add(discount);
     }
 
     public Discounts getDiscounts() {

@@ -18,11 +18,11 @@ public class Catalog {
         return values.get(item).getPrice();
     }
 
-    public boolean containsDiscountFor(char item) {
-        return values.get(item).hasDiscount();
+    public boolean containsDiscountFor(char item, Integer quantity) {
+        return values.get(item).hasDiscount() && values.get(item).getDiscount().matches(quantity);
     }
 
-    public Discount getDiscountFor(char item) {
-        return values.get(item).getDiscount();
+    public int getDiscountFor(char item, Integer quantity) {
+        return values.get(item).getDiscount().getDiscount(quantity);
     }
 }

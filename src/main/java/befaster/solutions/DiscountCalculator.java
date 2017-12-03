@@ -8,17 +8,14 @@ public class DiscountCalculator {
     }
 
     public int calculateDiscountFor(Basket basket) {
-        int toDiscount = 0;
+        int total = 0;
         for (char item: basket.getItems()) {
             Integer quantity = basket.getQuantityFor(item);
-            if (catalog.containsDiscountFor(item)) {
-                Discount discount = catalog.getDiscountFor(item);
-                if (discount.matches(quantity)) {
-                    toDiscount += discount.getDiscount(quantity);
-                    continue;
-                }
+            if (catalog.containsDiscountFor(item, quantity)) {
+                total += catalog.getDiscountFor(item, quantity);
+                continue;
             }
         }
-        return toDiscount;
+        return total;
     }
 }

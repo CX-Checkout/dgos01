@@ -28,11 +28,9 @@ public class DiscountCalculator {
             }
         }
 
-        for (char item : basket.getItems()) {
-            if (!catalog.hasPackDiscount(item))
-                continue;
-            PackDiscount packDiscount = catalog.getPackDiscount(item);
-            while (basket.getNumberOfItemsFor(item) > 0) {
+        PackDiscount packDiscount = new PackDiscount(3, 45, 'Z', 'S', 'T', 'Y', 'X');
+        for (char item: packDiscount.getItems()) {
+            while (basket.contains(item)) {
                 List<Character> candidates = new ArrayList<>();
                 candidates.add(item);
                 basket.remove(item, 1);

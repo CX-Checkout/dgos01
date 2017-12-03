@@ -11,9 +11,15 @@ public class DiscountCalculator {
         int total = 0;
         for (char item: basket.getItems()) {
             Integer numberOfItems = basket.getNumberOfItemsFor(item);
-            if (catalog.containsDiscountFor(item, numberOfItems)) {
-                total += catalog.getAmountToDiscountFor(item, numberOfItems);
-                continue;
+            Discounts discounts = catalog.getDiscountsFor(item);
+            if (!discounts.isEmpty()) {
+                for (Discount discount: discounts.getValues()) {
+
+                }
+//            if (catalog.containsDiscountFor(item, numberOfItems)) {
+//                total += catalog.getAmountToDiscountFor(item, numberOfItems);
+//                total += catalog.getAmountToDiscountFor(item, numberOfItems);
+//                continue;
             }
         }
         return total;

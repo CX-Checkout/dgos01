@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Discounts {
-    List<Discount> values;
+    private List<Discount> values;
 
     public Discounts() {
         values = new ArrayList<>();
@@ -34,5 +34,9 @@ public class Discounts {
             amountToDiscount += packs * discount.getAmountToDiscountPerPack();
         }
         return amountToDiscount;
+    }
+
+    public List<Discount> getValues() {
+        return values;
     }
 }

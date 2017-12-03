@@ -9,6 +9,10 @@ public class ProductDiscount {
         this.itemToDiscount = itemToDiscount;
     }
 
+    public int getNumberOfItems() {
+        return numberOfItems;
+    }
+
     public char getItemToDiscount() {
         return itemToDiscount;
     }

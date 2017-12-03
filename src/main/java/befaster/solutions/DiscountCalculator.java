@@ -38,11 +38,11 @@ public class DiscountCalculator {
                 int index = 0;
                 while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getSizeOfPossibleItems()) {
                     char possibleCandidate = packDiscount.getItemForIndex(index);
-                    //if (item != possibleCandidate) {
+                    if (item != possibleCandidate) {
                         if (basket.contains(possibleCandidate)) {
                             candidates.add(possibleCandidate);
                         }
-                    //}
+                    }
                     index++;
                 }
                 if (candidates.size() != packDiscount.getNumberOfItems())

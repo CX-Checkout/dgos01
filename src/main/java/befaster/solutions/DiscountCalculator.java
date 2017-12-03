@@ -31,28 +31,28 @@ public class DiscountCalculator {
         for (char item : basket.getItems()) {
             if (!catalog.hasPackDiscount(item))
                 continue;
-            if (basket.getNumberOfItemsFor(item) == 0)
-                continue;
-            PackDiscount packDiscount = catalog.getPackDiscount(item);
-            List<Character> candidates = new ArrayList<>();
-            candidates.add(item);
-            int index = 0;
-            while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getNumberOfItems()) {
-                char otherItem = packDiscount.getItems()[index];
-                if (item != otherItem) {
-                    if (basket.contains(otherItem) && basket.getNumberOfItemsFor(otherItem) > 0) {
-                        candidates.add(otherItem);
+            while (basket.getNumberOfItemsFor(item) > 0) {
+                PackDiscount packDiscount = catalog.getPackDiscount(item);
+                List<Character> candidates = new ArrayList<>();
+                candidates.add(item);
+                int index = 0;
+                while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getNumberOfItems()) {
+                    char otherItem = packDiscount.getItems()[index];
+                    if (item != otherItem) {
+                        if (basket.contains(otherItem) && basket.getNumberOfItemsFor(otherItem) > 0) {
+                            candidates.add(otherItem);
+                        }
                     }
+                    index++;
                 }
-                index++;
-            }
-            if (candidates.size() == packDiscount.getNumberOfItems()) {
-                int priceForCandidates = 0;
-                for (char candidate: candidates) {
-                    priceForCandidates += catalog.getPriceFor(candidate);
-                    basket.remove(candidate, 1);
-                }
-                total += (priceForCandidates - packDiscount.getPricePerPack());
+                if (candidates.size() == packDiscount.getNumberOfItems()) {
+                    int priceForCandidates = 0;
+                    for (char candidate : candidates) {
+                        priceForCandidates += catalog.getPriceFor(candidate);
+                        basket.remove(candidate, 1);
+                    }
+                    total += (priceForCandidates - packDiscount.getPricePerPack());
+                } else break;
             }
         }
 

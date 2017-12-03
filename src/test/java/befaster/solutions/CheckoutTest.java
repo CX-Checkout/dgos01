@@ -104,8 +104,10 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("ZST"), is(45));
         assertThat(Checkout.checkout("ZTY"), is(45));
         assertThat(Checkout.checkout("ZTYZTY"), is(90));
+        assertThat(Checkout.checkout("ZTYZTYZTY"), is(135));
+        assertThat(Checkout.checkout("ZTYZTYXTY"), is(135));
         assertThat(Checkout.checkout("ZTYA"), is(95));
         assertThat(Checkout.checkout("ZTYBB"), is(90));
-        assertThat(Checkout.checkout("ZXSYTZ"), is(90));
+        assertThat(Checkout.checkout("ZXSYTS"), is(90));
     }
 }

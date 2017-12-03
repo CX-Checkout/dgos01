@@ -8,27 +8,35 @@ public class DiscountCalculator {
     }
 
     public int calculateDiscountFor(Basket basket) {
+        Basket basketForDiscounts = basket;
         int total = 0;
-        for (char item: basket.getItems()) {
-            Integer numberOfItems = basket.getNumberOfItemsFor(item);
+
+        for (char item: basketForDiscounts.getItems()) {
+            Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
+            if (!catalog.hasProductDiscount(item))
+                continue;
+            ProductDiscount productDiscount = catalog.getProductDiscount(item);
+            if (numberOfItems >= productDiscount.getNumberOfItems()) {
+                char itemToDiscount = productDiscount.getItemToDiscount();
+                if (basketForDiscounts.contains(itemToDiscount)) {
+                    int packs = numberOfItems / productDiscount.getNumberOfItems();
+                    int availableProductsToDiscount = basketForDiscounts.getNumberOfItemsFor(itemToDiscount);
+                    int itemsForDiscount = 0;
+                    if (availableProductsToDiscount >= packs)
+                        itemsForDiscount = packs;
+                    else
+                        itemsForDiscount = availableProductsToDiscount;
+                    total += itemsForDiscount * catalog.getPriceFor(itemToDiscount);
+                    basketForDiscounts.remove(itemToDiscount, itemsForDiscount);
+                }
+            }
+        }
+
+        for (char item: basketForDiscounts.getItems()) {
+            Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
             Discounts amountDiscounts = catalog.getDiscountsFor(item);
             if (!amountDiscounts.isEmpty() && applyFor(amountDiscounts, numberOfItems)) {
                 total += getAmountToDiscountFor(amountDiscounts, numberOfItems);
-                continue;
-            }
-
-            if (catalog.hasProductDiscount(item)) {
-                ProductDiscount productDiscount = catalog.getProductDiscount(item);
-                if (numberOfItems >= productDiscount.getNumberOfItems()) {
-                    if (basket.contains(productDiscount.getItemToDiscount())) {
-                        int packs = numberOfItems / productDiscount.getNumberOfItems();
-                        int availableProductsToDiscount = basket.getNumberOfItemsFor(productDiscount.getItemToDiscount());
-                        if (availableProductsToDiscount >= packs)
-                            total += packs * catalog.getPriceFor(productDiscount.getItemToDiscount());
-                        else
-                            total += availableProductsToDiscount * catalog.getPriceFor(productDiscount.getItemToDiscount());
-                    }
-                }
             }
         }
         return total;

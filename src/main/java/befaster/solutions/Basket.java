@@ -30,4 +30,9 @@ public class Basket {
     public boolean contains(char item) {
         return quantityPerProduct.containsKey(item);
     }
+
+    public void remove(char item, int numberToRemove) {
+        int quantity = quantityPerProduct.get(item);
+        quantityPerProduct.replace(item, quantity - numberToRemove);
+    }
 }

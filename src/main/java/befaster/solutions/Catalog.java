@@ -72,9 +72,10 @@ public class Catalog {
         productInfo.addProductDiscount(3, 'U');
         values.put('U', productInfo);
 
-        new ProductInfo(50).addDiscount(3, 20);
-        new ProductInfo(50).addDiscount(2, 10);
-        values.put('V', new ProductInfo(50));
+        productInfo = new ProductInfo(50);
+        productInfo.addDiscount(3, 20);
+        productInfo.addDiscount(2, 10);
+        values.put('V', productInfo);
 
         values.put('W', new ProductInfo(20));
         values.put('X', new ProductInfo(17));

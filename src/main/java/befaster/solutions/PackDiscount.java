@@ -10,4 +10,16 @@ public class PackDiscount {
         this.pricePerPack = pricePerPack;
         this.items = items;
     }
+
+    public int getNumberOfItems() {
+        return numberOfItems;
+    }
+
+    public int getPricePerPack() {
+        return pricePerPack;
+    }
+
+    public char[] getItems() {
+        return items;
+    }
 }

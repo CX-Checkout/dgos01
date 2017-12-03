@@ -1,5 +1,8 @@
 package befaster.solutions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DiscountCalculator {
     private Catalog catalog;
 
@@ -25,12 +28,31 @@ public class DiscountCalculator {
             }
         }
 
-//        for (char item : basket.getItems()) {
-//            if (!catalog.hasPackDiscount(item))
-//                continue;
-//            PackDiscount packDiscount = catalog.getPackDiscount(item);
-//            while (packDiscount.apply(basket.getItems()))
-//        }
+        for (char item : basket.getItems()) {
+            if (!catalog.hasPackDiscount(item))
+                continue;
+            if (basket.getNumberOfItemsFor(item) == 0)
+                continue;
+            PackDiscount packDiscount = catalog.getPackDiscount(item);
+            List<Character> candidates = new ArrayList<>();
+            candidates.add(item);
+            int index = 0;
+            while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getNumberOfItems()) {
+                char otherItem = packDiscount.getItems()[index];
+                if (basket.getNumberOfItemsFor(otherItem) > 0) {
+                    candidates.add(otherItem);
+                }
+                index++;
+            }
+            if (candidates.size() == packDiscount.getNumberOfItems()) {
+                int priceForCandidates = 0;
+                for (char candidate: candidates) {
+                    priceForCandidates += catalog.getPriceFor(candidate);
+                    basket.remove(candidate, 1);
+                }
+                total += (priceForCandidates - packDiscount.getPricePerPack());
+            }
+        }
 
         for (char item : basket.getItems()) {
             Discounts amountDiscounts = catalog.getDiscountsFor(item);

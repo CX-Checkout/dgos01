@@ -98,4 +98,11 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("Y"), is(20));
         assertThat(Checkout.checkout("Z"), is(21));
     }
+
+    @Test
+    public void calculate_the_price_for_a_pack() {
+        assertThat(Checkout.checkout("ZST"), is(45));
+        assertThat(Checkout.checkout("ZTY"), is(45));
+        assertThat(Checkout.checkout("ZTYBB"), is(90));
+    }
 }

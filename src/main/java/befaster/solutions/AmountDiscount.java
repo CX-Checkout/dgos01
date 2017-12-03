@@ -4,6 +4,14 @@ public class AmountDiscount {
     private final int numberOfItems;
     private final int amountToDiscountPerPack;
 
+    public int getNumberOfItems() {
+        return numberOfItems;
+    }
+
+    public int getAmountToDiscountPerPack() {
+        return amountToDiscountPerPack;
+    }
+
     public AmountDiscount(int numberOfItems, int amountToDiscountPerPack) {
         this.numberOfItems = numberOfItems;
         this.amountToDiscountPerPack = amountToDiscountPerPack;

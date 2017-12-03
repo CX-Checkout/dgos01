@@ -29,19 +29,16 @@ public class DiscountCalculator {
         }
 
         for (char item : basketForDiscounts.getItems()) {
-            Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
             Discounts amountDiscounts = catalog.getDiscountsFor(item);
             if (amountDiscounts.isEmpty())
                 continue;
-            int amountToDiscount = 0;
-            int numberOfItemsConsidered = numberOfItems;
             for (AmountDiscount discount : amountDiscounts.getValues()) {
-                if (discount.apply(numberOfItemsConsidered)) {
-                    amountToDiscount += discount.getAmountToDiscount(numberOfItemsConsidered);
-                    numberOfItemsConsidered -= discount.getNumberOfAffectedItems(numberOfItemsConsidered);
+                    Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
+                while (discount.apply(numberOfItemsConsidered)) {
+                    total += discount.getAmountToDiscountPerPack();
+                    basketForDiscounts.remove(item, discount.getNumberOfItems());
                 }
             }
-            total += amountToDiscount;
         }
         return total;
     }

@@ -106,8 +106,8 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("SSS"), is(45));
         assertThat(Checkout.checkout("ZZZ"), is(45));
         assertThat(Checkout.checkout("SSSZ"), is(65));
-        assertThat(Checkout.checkout("ZZZS"), is(65));
         assertThat(Checkout.checkout("TTTX"), is(62));
+        assertThat(Checkout.checkout("ZZZS"), is(65));
         assertThat(Checkout.checkout("ZZZZZZ"), is(90));
         assertThat(Checkout.checkout("ZTYZTY"), is(90));
         assertThat(Checkout.checkout("ZTYZTYZTY"), is(135));

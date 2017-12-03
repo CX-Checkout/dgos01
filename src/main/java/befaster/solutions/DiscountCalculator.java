@@ -29,22 +29,10 @@ public class DiscountCalculator {
         }
 
         for (char item : basket.getItems()) {
-            Discounts amountDiscounts = catalog.getDiscountsFor(item);
-            if (amountDiscounts.isEmpty())
+            if (!catalog.hasPackDiscount(item))
                 continue;
-            for (AmountDiscount discount : amountDiscounts.getValues()) {
-                Integer numberOfItems = basket.getNumberOfItemsFor(item);
-                while (discount.apply(numberOfItems)) {
-                    total += discount.getAmountToDiscountPerPack();
-                    basket.remove(item, discount.getNumberOfItems());
-                    numberOfItems = basket.getNumberOfItemsFor(item);
-                }
-            }
-        }
-
-        PackDiscount packDiscount = new PackDiscount(3, 45, 'Z', 'S', 'T', 'Y', 'X');
-        for (char item: packDiscount.getItems()) {
-            while (basket.contains(item)) {
+            PackDiscount packDiscount = catalog.getPackDiscount(item);
+            while (basket.getNumberOfItemsFor(item) > 0) {
                 List<Character> candidates = new ArrayList<>();
                 candidates.add(item);
                 basket.remove(item, 1);
@@ -67,6 +55,20 @@ public class DiscountCalculator {
                     total += catalog.getPriceFor(candidate);
                 }
                 total -= packDiscount.getPricePerPack();
+            }
+        }
+
+        for (char item : basket.getItems()) {
+            Discounts amountDiscounts = catalog.getDiscountsFor(item);
+            if (amountDiscounts.isEmpty())
+                continue;
+            for (AmountDiscount discount : amountDiscounts.getValues()) {
+                Integer numberOfItems = basket.getNumberOfItemsFor(item);
+                while (discount.apply(numberOfItems)) {
+                    total += discount.getAmountToDiscountPerPack();
+                    basket.remove(item, discount.getNumberOfItems());
+                    numberOfItems = basket.getNumberOfItemsFor(item);
+                }
             }
         }
         return total;

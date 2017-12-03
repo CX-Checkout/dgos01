@@ -35,4 +35,8 @@ public class ProductInfo {
     public int getAmountToDiscountFor(int numberOfItems) {
         return discounts.getAmountToDiscountFor(numberOfItems);
     }
+
+    public void addDiscount(int numberOfItems, int quantityToDiscount) {
+        discounts.add(new Discount(numberOfItems, quantityToDiscount));
+    }
 }

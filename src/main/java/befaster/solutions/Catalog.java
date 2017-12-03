@@ -10,8 +10,8 @@ public class Catalog {
         values = new HashMap<>();
 
         ProductInfo productInfo = new ProductInfo(50);
-        productInfo.addDiscount(new Discount(5, 50));
-        productInfo.addDiscount(new Discount(3, 20));
+        productInfo.addDiscount(5, 50);
+        productInfo.addDiscount(3, 20);
         values.put('A', productInfo);
 
         productInfo = new ProductInfo(30);
@@ -23,7 +23,8 @@ public class Catalog {
     }
 
     public Integer getPriceFor(char item) {
-        return values.get(item).getPricePerUnit();
+        ProductInfo productInfo = values.get(item);
+        return productInfo.getPricePerUnit();
     }
 
     public boolean containsDiscountFor(char item, Integer numberOfItems) {
@@ -33,7 +34,6 @@ public class Catalog {
 
     public int getDiscountFor(char item, Integer numberOfItems) {
         ProductInfo productInfo = values.get(item);
-//        return productInfo.getDiscounts().getAmountToDiscountFor(numberOfItems);
         return productInfo.getAmountToDiscountFor(numberOfItems);
     }
 }

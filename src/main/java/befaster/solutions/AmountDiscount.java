@@ -9,14 +9,17 @@ public class AmountDiscount extends Discount {
         this.amountToDiscountPerPack = amountToDiscountPerPack;
     }
 
+    @Override
     public boolean apply(int numberOfItems) {
         return numberOfItems >= this.numberOfItems;
     }
 
+    @Override
     public int getNumberOfAffectedItems(int numberOfItems) {
         return getPacksNumber(numberOfItems) * this.numberOfItems;
     }
 
+    @Override
     public int getAmountToDiscount(int numberOfItems) {
         return getPacksNumber(numberOfItems) * this.amountToDiscountPerPack;
     }

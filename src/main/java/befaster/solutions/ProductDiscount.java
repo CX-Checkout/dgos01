@@ -11,16 +11,20 @@ public class ProductDiscount extends Discount {
 
     @Override
     public boolean apply(int numberOfItems) {
-        return false;
+        return numberOfItems >= this.numberOfItems;
     }
 
     @Override
-    public int getAmountToDiscount(int numberOfItemsConsidered) {
-        return 0;
+    public int getNumberOfAffectedItems(int numberOfItems) {
+        return getPacksNumber(numberOfItems) * this.numberOfItems;
     }
 
     @Override
-    public int getNumberOfAffectedItems(int numberOfItemsConsidered) {
-        return 0;
+    public int getAmountToDiscount(int numberOfItems) {
+        return getPacksNumber(numberOfItems) * this.productToDiscount;
+    }
+
+    private int getPacksNumber(int numberOfItems) {
+        return numberOfItems / this.numberOfItems;
     }
 }

@@ -36,6 +36,7 @@ public class DiscountCalculator {
                 Basket internalBasket = basket;
                 List<Character> candidates = new ArrayList<>();
                 candidates.add(item);
+                initialBasket.remove(item, 1);
                 int index = 0;
                 while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getSizeOfPossibleItems()) {
                     char possibleCandidate = packDiscount.getItemForIndex(index);

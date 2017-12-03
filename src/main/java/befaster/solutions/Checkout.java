@@ -7,6 +7,8 @@ public class Checkout {
         Catalog catalog = new Catalog();
         Basket basket = new Basket(skus);
 
+        PriceCalculator priceCalculator = new PriceCalculator(catalog);
+        int totalPrice = priceCalculator.calculatePriceFor(basket);
         int total = 0;
         for (char item: basket.getItems()) {
             Integer quantity = basket.getQuantityFor(item);

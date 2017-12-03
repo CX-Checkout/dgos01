@@ -22,10 +22,4 @@ public class ProductDiscount {
             return numberOfItems > this.numberOfItems;
         return numberOfItems >= this.numberOfItems;
     }
-
-    public int getNumberOfPacks(char item, Integer numberOfItems) {
-        if (item == itemToDiscount)
-            return (numberOfItems) / (this.numberOfItems + 1);
-        return numberOfItems / this.numberOfItems;
-    }
 }

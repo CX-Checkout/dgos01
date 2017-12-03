@@ -20,16 +20,4 @@ public class AmountDiscount {
     public boolean apply(int numberOfItems) {
         return numberOfItems >= this.numberOfItems;
     }
-
-    public int getNumberOfAffectedItems(int numberOfItems) {
-        return getPacksNumber(numberOfItems) * this.numberOfItems;
-    }
-
-    public int getAmountToDiscount(int numberOfItems) {
-        return getPacksNumber(numberOfItems) * this.amountToDiscountPerPack;
-    }
-
-    private int getPacksNumber(int numberOfItems) {
-        return numberOfItems / this.numberOfItems;
-    }
 }

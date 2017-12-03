@@ -1,19 +1,15 @@
 package befaster.solutions;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductInfo {
     private int pricePerUnit;
-    private Optional<Discount> discount;
+    private List<Discount> discounts;
 
     public ProductInfo(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
-        this.discount = Optional.empty();
-    }
-
-    public ProductInfo(int pricePerUnit, Discount discount) {
-        this.pricePerUnit = pricePerUnit;
-        this.discount = Optional.of(discount);
+        this.discounts = new ArrayList<>();
     }
 
     public int getPricePerUnit() {
@@ -21,10 +17,14 @@ public class ProductInfo {
     }
 
     public boolean hasDiscount() {
-        return discount.isPresent();
+        return discounts.size() > 0;
     }
 
-    public Discount getDiscount() {
-        return discount.get();
+    public List<Discount> getDiscount() {
+        return discounts;
+    }
+
+    public void addDiscount(Discount discount) {
+        this.discounts.add(discount);
     }
 }

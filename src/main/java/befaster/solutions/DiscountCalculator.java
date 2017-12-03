@@ -11,28 +11,25 @@ public class DiscountCalculator {
         Basket basketForDiscounts = basket;
         int total = 0;
 
-        for (char item: basketForDiscounts.getItems()) {
+        for (char item : basketForDiscounts.getItems()) {
             Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
             if (!catalog.hasProductDiscount(item))
                 continue;
             ProductDiscount productDiscount = catalog.getProductDiscount(item);
-            if (numberOfItems >= productDiscount.getNumberOfItems()) {
+            int numberOfItemsForDiscount = productDiscount.getNumberOfItems();
+            if (numberOfItems >= numberOfItemsForDiscount) {
                 char itemToDiscount = productDiscount.getItemToDiscount();
                 if (basketForDiscounts.contains(itemToDiscount)) {
-                    int packs = numberOfItems / productDiscount.getNumberOfItems();
+                    int packs = numberOfItems / numberOfItemsForDiscount;
                     int availableProductsToDiscount = basketForDiscounts.getNumberOfItemsFor(itemToDiscount);
-                    int itemsForDiscount = 0;
-                    if (availableProductsToDiscount >= packs)
-                        itemsForDiscount = packs;
-                    else
-                        itemsForDiscount = availableProductsToDiscount;
-                    total += itemsForDiscount * catalog.getPriceFor(itemToDiscount);
-                    basketForDiscounts.remove(itemToDiscount, itemsForDiscount);
+                    int numberOfItemsToDiscount = (availableProductsToDiscount >= packs) ? packs : availableProductsToDiscount;
+                    total += numberOfItemsToDiscount * catalog.getPriceFor(itemToDiscount);
+                    basketForDiscounts.remove(itemToDiscount, numberOfItemsToDiscount);
                 }
             }
         }
 
-        for (char item: basketForDiscounts.getItems()) {
+        for (char item : basketForDiscounts.getItems()) {
             Integer numberOfItems = basketForDiscounts.getNumberOfItemsFor(item);
             Discounts amountDiscounts = catalog.getDiscountsFor(item);
             if (!amountDiscounts.isEmpty() && applyFor(amountDiscounts, numberOfItems)) {
@@ -52,7 +49,7 @@ public class DiscountCalculator {
     private int getAmountToDiscountFor(Discounts discounts, int numberOfItems) {
         int amountToDiscount = 0;
         int numberOfItemsConsidered = numberOfItems;
-        for (AmountDiscount discount: discounts.getValues()) {
+        for (AmountDiscount discount : discounts.getValues()) {
             amountToDiscount += discount.getAmountToDiscount(numberOfItemsConsidered);
             numberOfItemsConsidered -= discount.getNumberOfAffectedItems(numberOfItemsConsidered);
         }

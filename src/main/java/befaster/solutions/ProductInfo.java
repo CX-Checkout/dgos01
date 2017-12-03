@@ -1,17 +1,18 @@
 package befaster.solutions;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public class ProductInfo {
     private int pricePerUnit;
     private Discounts amountDiscounts;
     private Optional<ProductDiscount> productDiscount;
+    private Optional<PackDiscount> packDiscount;
 
     public ProductInfo(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
         this.amountDiscounts = new Discounts();
         this.productDiscount = Optional.empty();
+        this.packDiscount = Optional.empty();
     }
 
     public int getPricePerUnit() {
@@ -36,5 +37,9 @@ public class ProductInfo {
 
     public ProductDiscount getProductDiscount() {
         return productDiscount.get();
+    }
+
+    public void addPackDiscount(PackDiscount packDiscount) {
+        this.packDiscount = Optional.of(packDiscount);
     }
 }

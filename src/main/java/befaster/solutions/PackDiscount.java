@@ -10,6 +10,4 @@ public class PackDiscount {
         this.pricePerPack = pricePerPack;
         this.items = items;
     }
-
-    
 }

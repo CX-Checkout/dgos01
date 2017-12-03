@@ -40,8 +40,8 @@ public class DiscountCalculator {
                 while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getSizeOfPossibleItems()) {
                     char possibleCandidate = packDiscount.getItemForIndex(index);
                     if (basket.contains(possibleCandidate)) {
-                        basket.remove(possibleCandidate, 1);
                         candidates.add(possibleCandidate);
+                        basket.remove(possibleCandidate, 1);
                     } else
                         index++;
                 }
@@ -53,7 +53,6 @@ public class DiscountCalculator {
 
                 for (char candidate : candidates) {
                     total += catalog.getPriceFor(candidate);
-                    //basket.remove(candidate, 1);
                 }
                 total -= packDiscount.getPricePerPack();
             }

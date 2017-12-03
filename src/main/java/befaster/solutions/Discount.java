@@ -16,4 +16,17 @@ public class Discount {
     public int getAmountToDiscountPerPack() {
         return amountToDiscountPerPack;
     }
+
+    public boolean apply(int numberOfItems) {
+        return numberOfItems >= this.numberOfItems;
+    }
+
+    public int getNumberOfAffectedItems(int numberOfItems) {
+        return (numberOfItems / this.numberOfItems) * this.numberOfItems;
+        return (numberOfItems / this.numberOfItems) * this.numberOfItems;
+    }
+
+    public int getAmountToDiscount(int numberOfItemsConsidered) {
+
+    }
 }

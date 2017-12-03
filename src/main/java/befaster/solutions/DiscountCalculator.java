@@ -22,7 +22,7 @@ public class DiscountCalculator {
 
     private boolean apply(Discounts discounts, int numberOfItems) {
         for (Discount discount : discounts.getValues())
-            if (numberOfItems >= discount.getNumberOfItems())
+            if (discount.apply(numberOfItems))
                 return true;
         return false;
     }
@@ -31,9 +31,11 @@ public class DiscountCalculator {
         int amountToDiscount = 0;
         int numberOfItemsConsidered = numberOfItems;
         for (Discount discount: discounts.getValues()) {
-            int packs = numberOfItemsConsidered / discount.getNumberOfItems();
-            numberOfItemsConsidered -= packs * discount.getNumberOfItems();
-            amountToDiscount += packs * discount.getAmountToDiscountPerPack();
+//            int packs = numberOfItemsConsidered / discount.getNumberOfItems();
+//            numberOfItemsConsidered -= packs * discount.getNumberOfItems();
+//            amountToDiscount += packs * discount.getAmountToDiscountPerPack();
+            numberOfItemsConsidered -= discount.getNumberOfAffectedItems(numberOfItemsConsidered);
+            amountToDiscount += discount.getAmountToDiscount(numberOfItemsConsidered);
         }
         return amountToDiscount;
     }

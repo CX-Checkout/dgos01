@@ -65,7 +65,7 @@ public class Catalog {
         productInfo.addProductDiscount(3, 'Q');
         values.put('R', productInfo);
 
-        values.put('S', new ProductInfo(30));
+        values.put('S', new ProductInfo(20));
         values.put('T', new ProductInfo(20));
 
         productInfo = new ProductInfo(40);
@@ -78,9 +78,9 @@ public class Catalog {
         values.put('V', productInfo);
 
         values.put('W', new ProductInfo(20));
-        values.put('X', new ProductInfo(90));
-        values.put('Y', new ProductInfo(10));
-        values.put('Z', new ProductInfo(50));
+        values.put('X', new ProductInfo(17));
+        values.put('Y', new ProductInfo(20));
+        values.put('Z', new ProductInfo(21));
     }
 
     public Integer getPriceFor(char item) {

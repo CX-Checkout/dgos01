@@ -28,11 +28,12 @@ public class Catalog {
 
     public boolean containsDiscountFor(char item, Integer numberOfItems) {
         ProductInfo productInfo = values.get(item);
-        return productInfo.hasDiscounts() && productInfo.getDiscounts().applyFor(numberOfItems);
+        return productInfo.hasDiscountsAndApplyFor(numberOfItems);
     }
 
     public int getDiscountFor(char item, Integer numberOfItems) {
         ProductInfo productInfo = values.get(item);
-        return productInfo.getDiscounts().getAmountToDiscountFor(numberOfItems);
+//        return productInfo.getDiscounts().getAmountToDiscountFor(numberOfItems);
+        return productInfo.getAmountToDiscountFor(numberOfItems);
     }
 }

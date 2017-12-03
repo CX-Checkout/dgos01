@@ -16,7 +16,7 @@ public class ProductInfo {
         return pricePerUnit;
     }
 
-    public boolean hasDiscounts() {
+    private boolean hasDiscounts() {
         return discounts.size() > 0;
     }
 
@@ -26,5 +26,13 @@ public class ProductInfo {
 
     public void addDiscount(Discount discount) {
         this.discounts.add(discount);
+    }
+
+    public boolean hasDiscountsAndApplyFor(Integer numberOfItems) {
+        return hasDiscounts() && discounts.applyFor(numberOfItems);
+    }
+
+    public int getAmountToDiscountFor(int numberOfItems) {
+        return discounts.getAmountToDiscountFor(numberOfItems);
     }
 }

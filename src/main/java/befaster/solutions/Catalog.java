@@ -30,21 +30,52 @@ public class Catalog {
         values.put('F', productInfo);
 
         values.put('G', new ProductInfo(20));
-        values.put('H', new ProductInfo(10));    | 5H for 45, 10H for 80  |
+
+        productInfo = new ProductInfo(10);
+        productInfo.addDiscount(10, 20);
+        productInfo.addDiscount(5, 5);
+        values.put('H', productInfo);
+
         values.put('I', new ProductInfo(35));
         values.put('J', new ProductInfo(60));
-        values.put('K', new ProductInfo(80));    | 2K for 150             |
+
+        productInfo = new ProductInfo(80);
+        productInfo.addDiscount(2, 10);
+        values.put('K', productInfo);
+
         values.put('L', new ProductInfo(90));
         values.put('M', new ProductInfo(15));
-        values.put('N', new ProductInfo(40));    | 3N get one M free      |
+
+
+        productInfo = new ProductInfo(40);
+        productInfo.addProductDiscount(3, 'M');
+        values.put('N', productInfo);
+
         values.put('O', new ProductInfo(10));
-        values.put('P', new ProductInfo(50));    | 5P for 200             |
-        values.put('Q', new ProductInfo(30));    | 3Q for 80              |
-        values.put('R', new ProductInfo(50));    | 3R get one Q free      |
+
+        productInfo = new ProductInfo(50);
+        productInfo.addDiscount(5, 50);
+        values.put('P', productInfo);
+
+        productInfo = new ProductInfo(30);
+        productInfo.addDiscount(3, 10);
+        values.put('Q', productInfo);
+
+        productInfo = new ProductInfo(50);
+        productInfo.addProductDiscount(3, 'Q');
+        values.put('R', productInfo);
+
         values.put('S', new ProductInfo(30));
         values.put('T', new ProductInfo(20));
-        values.put('U', new ProductInfo(40));    | 3U get one U free      |
-        values.put('V', new ProductInfo(50));    | 2V for 90, 3V for 130  |
+
+        productInfo = new ProductInfo(40);
+        productInfo.addProductDiscount(3, 'U');
+        values.put('U', productInfo);
+
+        productInfo = new ProductInfo(50);
+        productInfo.addProductDiscount(3, 'Q');
+        productInfo.addProductDiscount(3, 'Q');
+        values.put('V', productInfo);   // | 2V for 90, 3V for 130  |
         values.put('W', new ProductInfo(20));
         values.put('X', new ProductInfo(90));
         values.put('Y', new ProductInfo(10));

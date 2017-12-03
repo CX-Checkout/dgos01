@@ -18,19 +18,21 @@ public class Checkout {
         offerPerProduct.put('B', new Offer(2, 45));
 
         Basket basket = new Basket(skus);
-        HashMap<Character, Integer> quantityPerProduct = new HashMap<>();
-        for (char item: skus.toCharArray()) {
-            if (!quantityPerProduct.containsKey(item)) {
-                quantityPerProduct.put(item, 1);
-                continue;
-            }
-            int quantity = quantityPerProduct.get(item);
-            quantityPerProduct.replace(item, quantity + 1);
-        }
+//        HashMap<Character, Integer> quantityPerProduct = new HashMap<>();
+//        for (char item: skus.toCharArray()) {
+//            if (!quantityPerProduct.containsKey(item)) {
+//                quantityPerProduct.put(item, 1);
+//                continue;
+//            }
+//            int quantity = quantityPerProduct.get(item);
+//            quantityPerProduct.replace(item, quantity + 1);
+//        }
 
         int total = 0;
-        for (char item: quantityPerProduct.keySet()) {
-            Integer quantity = quantityPerProduct.get(item);
+        for (char item: basket.getItems()) {
+//        for (char item: quantityPerProduct.keySet()) {
+            Integer quantity = basket.getQuantityFor(item);
+//            Integer quantity = quantityPerProduct.get(item);
             if (offerPerProduct.containsKey(item)) {
                 Offer offer = offerPerProduct.get(item);
                 if (offer.matches(quantity)) {

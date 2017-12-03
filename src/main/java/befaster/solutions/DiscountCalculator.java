@@ -16,11 +16,10 @@ public class DiscountCalculator {
             if (!catalog.hasProductDiscount(item))
                 continue;
             ProductDiscount productDiscount = catalog.getProductDiscount(item);
-            int numberOfItemsForDiscount = productDiscount.getNumberOfItems();
-            if (numberOfItems >= numberOfItemsForDiscount) {
+            if (productDiscount.apply(numberOfItems)) {
                 char itemToDiscount = productDiscount.getItemToDiscount();
                 if (basketForDiscounts.contains(itemToDiscount)) {
-                    int packs = numberOfItems / numberOfItemsForDiscount;
+                    int packs = numberOfItems / productDiscount.getNumberOfItems();
                     int availableProductsToDiscount = basketForDiscounts.getNumberOfItemsFor(itemToDiscount);
                     int numberOfItemsToDiscount = (availableProductsToDiscount >= packs) ? packs : availableProductsToDiscount;
                     total += numberOfItemsToDiscount * catalog.getPriceFor(itemToDiscount);

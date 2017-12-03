@@ -26,4 +26,8 @@ public class PackDiscount {
     public int getSizeOfPossibleItems() {
         return items.length;
     }
+
+    public char[] getItems() {
+        return items;
+    }
 }

@@ -28,14 +28,11 @@ public class Basket {
     }
 
     public boolean contains(char item) {
-        return quantityPerProduct.containsKey(item);
+        return quantityPerProduct.containsKey(item) && (quantityPerProduct.get(item) > 0);
     }
 
     public void remove(char item, int numberToRemove) {
         int quantity = quantityPerProduct.get(item);
-        if (quantity == numberToRemove)
-            quantityPerProduct.remove(item);
-        else
-            quantityPerProduct.replace(item, quantity - numberToRemove);
+        quantityPerProduct.replace(item, quantity - numberToRemove);
     }
 }

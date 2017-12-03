@@ -23,4 +23,12 @@ public class Catalog {
     public Integer getPriceFor(char item) {
         return pricePerProduct.get(item);
     }
+
+    public boolean containsOfferFor(char item) {
+        return offerPerProduct.containsKey(item);
+    }
+
+    public Offer getOfferFor(char item) {
+        return offerPerProduct.get(item);
+    }
 }

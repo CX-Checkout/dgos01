@@ -26,8 +26,13 @@ public class Discounts {
     }
 
     public int getAmountToDiscountFor(int numberOfItems) {
-        // TODO: taking into account all discounts
-        int packs = numberOfItems / this.values.get(0).getNumberOfItems();
-        return packs * this.values.get(0).getQuantityToDiscount();
+        int total = 0;
+        int numberOfItemsConsidered = numberOfItems;
+        for (Discount discount: values) {
+            int packs = numberOfItemsConsidered / discount.getNumberOfItems();
+            numberOfItemsConsidered -= packs * discount.getNumberOfItems();
+            total += packs * discount.getQuantityToDiscount();
+        }
+        return total;
     }
 }

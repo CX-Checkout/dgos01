@@ -20,14 +20,14 @@ public class DiscountCalculator {
         return total;
     }
 
-    public boolean applyFor(Discounts discounts, int numberOfItems) {
+    private boolean applyFor(Discounts discounts, int numberOfItems) {
         for (Discount discount : discounts.getValues())
-            if (numberOfItems >= discount.getNumberOfItems())
+            if (discount.apply(numberOfItems))
                 return true;
         return false;
     }
 
-    public int getAmountToDiscountFor(Discounts discounts, int numberOfItems) {
+    private int getAmountToDiscountFor(Discounts discounts, int numberOfItems) {
         int amountToDiscount = 0;
         int numberOfItemsConsidered = numberOfItems;
         for (Discount discount: discounts.getValues()) {

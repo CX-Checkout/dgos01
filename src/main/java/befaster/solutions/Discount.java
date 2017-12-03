@@ -9,19 +9,19 @@ public class Discount {
         this.amountToDiscountPerPack = amountToDiscountPerPack;
     }
 
-    public int getNumberOfItems() {
-        return numberOfItems;
+    public boolean apply(int numberOfItems) {
+        return numberOfItems >= this.numberOfItems;
     }
 
-    public int getAmountToDiscountPerPack() {
-        return amountToDiscountPerPack;
+    public int getNumberOfAffectedItems(int numberOfItems) {
+        return getPacksNumber(numberOfItems) * this.numberOfItems;
     }
 
-    public int getNumberOfAffectedItems(int numberOfItemsConsidered) {
-        return numberOfItemsConsidered / this.numberOfItems * this.numberOfItems;
+    public int getAmountToDiscount(int numberOfItems) {
+        return getPacksNumber(numberOfItems) * this.amountToDiscountPerPack;
     }
 
-    public int getAmountToDiscount(int numberOfItemsConsidered) {
-        return numberOfItemsConsidered / this.numberOfItems * this.amountToDiscountPerPack;
+    private int getPacksNumber(int numberOfItems) {
+        return numberOfItems / this.numberOfItems;
     }
 }

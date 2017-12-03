@@ -11,7 +11,7 @@ public class ProductDiscount extends Discount {
 
     @Override
     public boolean apply(int numberOfItems, Basket basket) {
-        return numberOfItems >= this.numberOfItems;
+        return (numberOfItems >= this.numberOfItems) && basket.contains(productToDiscount);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class ProductDiscount extends Discount {
     }
 
     private int getPacksNumber(int numberOfItems) {
-        return numberOfItems / this.numberOfItems;
+        return (numberOfItems / this.numberOfItems) ;
     }
 }

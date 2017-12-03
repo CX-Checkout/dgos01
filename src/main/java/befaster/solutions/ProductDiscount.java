@@ -17,7 +17,9 @@ public class ProductDiscount {
         return itemToDiscount;
     }
 
-    public boolean apply(Integer numberOfItems) {
+    public boolean apply(char item, Integer numberOfItems) {
+        if (item == itemToDiscount)
+            return numberOfItems > this.numberOfItems;
         return numberOfItems >= this.numberOfItems;
     }
 }

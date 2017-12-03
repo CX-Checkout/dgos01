@@ -33,6 +33,9 @@ public class Basket {
 
     public void remove(char item, int numberToRemove) {
         int quantity = quantityPerProduct.get(item);
-        quantityPerProduct.replace(item, quantity - numberToRemove);
+        if (quantity == numberToRemove)
+            quantityPerProduct.remove(item);
+        else
+            quantityPerProduct.replace(item, quantity - numberToRemove);
     }
 }

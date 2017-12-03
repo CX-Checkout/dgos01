@@ -8,8 +8,12 @@ public class Catalog {
 
     public Catalog() {
         values = new HashMap<>();
-        values.put('A', new ProductInfo(50, new Discount(3, 20)));
-        values.put('B', new ProductInfo(30, new Discount(2, 15)));
+        ProductInfo productInfo = new ProductInfo(50);
+        productInfo.addDiscount(new Discount(3, 20));
+        productInfo.addDiscount(new Discount(3, 20));
+        values.put('A', productInfo);
+        productInfo = new ProductInfo(30, new Discount(2, 15));
+        values.put('B', productInfo);
         values.put('C', new ProductInfo(20));
         values.put('D', new ProductInfo(15));
     }

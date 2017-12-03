@@ -14,7 +14,6 @@ public class DiscountCalculator {
         for (char item : basket.getItems()) {
             if (!catalog.hasProductDiscount(item))
                 continue;
-
             ProductDiscount productDiscount = catalog.getProductDiscount(item);
             char itemToDiscount = productDiscount.getItemToDiscount();
             Integer numberOfItems = basket.getNumberOfItemsFor(item);
@@ -30,7 +29,6 @@ public class DiscountCalculator {
             Discounts amountDiscounts = catalog.getDiscountsFor(item);
             if (amountDiscounts.isEmpty())
                 continue;
-
             for (AmountDiscount discount : amountDiscounts.getValues()) {
                 Integer numberOfItems = basket.getNumberOfItemsFor(item);
                 while (discount.apply(numberOfItems)) {

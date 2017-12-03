@@ -15,14 +15,16 @@ public class Catalog {
     }
 
     public Integer getPriceFor(char item) {
-        return values.get(item).getPrice();
+        return values.get(item).getPricePerUnit();
     }
 
-    public boolean containsDiscountFor(char item, Integer quantity) {
-        return values.get(item).hasDiscount() && values.get(item).getDiscount().matches(quantity);
+    public boolean containsDiscountFor(char item, Integer numberOfItems) {
+        ProductInfo productInfo = values.get(item);
+        return productInfo.hasDiscount() && productInfo.getDiscount().applyFor(numberOfItems);
     }
 
-    public int getDiscountFor(char item, Integer quantity) {
-        return values.get(item).getDiscount().getDiscount(quantity);
+    public int getDiscountFor(char item, Integer numberOfItems) {
+        ProductInfo productInfo = values.get(item);
+        return productInfo.getDiscount().getAmountToDiscountFor(numberOfItems);
     }
 }

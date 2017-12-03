@@ -3,21 +3,21 @@ package befaster.solutions;
 import java.util.Optional;
 
 public class ProductInfo {
-    private int price;
+    private int pricePerUnit;
     private Optional<Discount> discount;
 
-    public ProductInfo(int price) {
-        this.price = price;
+    public ProductInfo(int pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
         this.discount = Optional.empty();
     }
 
-    public ProductInfo(int price, Discount discount) {
-        this.price = price;
+    public ProductInfo(int pricePerUnit, Discount discount) {
+        this.pricePerUnit = pricePerUnit;
         this.discount = Optional.of(discount);
     }
 
-    public int getPrice() {
-        return price;
+    public int getPricePerUnit() {
+        return pricePerUnit;
     }
 
     public boolean hasDiscount() {

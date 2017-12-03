@@ -23,7 +23,7 @@ public class Basket {
         return quantityPerProduct.keySet();
     }
 
-    public int getQuantityFor(char item) {
+    public int getNumberOfItemsFor(char item) {
         return quantityPerProduct.get(item);
     }
 }

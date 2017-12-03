@@ -41,4 +41,8 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("BB"), is(45));
         assertThat(Checkout.checkout("AABAB"), is(175));
     }
+
+    @Test
+    public void calculate_the_price_when_more_than_one_offer_() {
+    }
 }

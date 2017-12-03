@@ -10,7 +10,7 @@ public class PriceCalculator {
     public int calculatePriceFor(Basket basket) {
         int total = 0;
         for (char item: basket.getItems()) {
-            Integer quantity = basket.getQuantityFor(item);
+            Integer quantity = basket.getNumberOfItemsFor(item);
             total += quantity * catalog.getPriceFor(item);
         }
         return total;

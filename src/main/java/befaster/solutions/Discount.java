@@ -9,11 +9,11 @@ public class Discount {
         this.quantityToDiscount = quantityToDiscount;
     }
 
-    public boolean matches(int numberOfItems) {
+    public boolean applyFor(int numberOfItems) {
         return numberOfItems >= this.numberOfItems;
     }
 
-    public int getDiscount(int numberOfItems) {
+    public int getAmountToDiscountFor(int numberOfItems) {
         int packs = numberOfItems / this.numberOfItems;
         return packs * quantityToDiscount;
     }

@@ -39,8 +39,8 @@ public class Catalog {
         values.put('I', new ProductInfo(35));
         values.put('J', new ProductInfo(60));
 
-        productInfo = new ProductInfo(80);
-        productInfo.addDiscount(2, 10);
+        productInfo = new ProductInfo(70);
+        productInfo.addDiscount(2, 20);
         values.put('K', productInfo);
 
         values.put('L', new ProductInfo(90));

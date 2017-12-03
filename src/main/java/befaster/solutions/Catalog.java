@@ -28,6 +28,7 @@ public class Catalog {
     }
 
     public Discounts getDiscountsFor(char item) {
-        return values.get(item).getDiscounts();
+        ProductInfo productInfo = values.get(item);
+        return productInfo.getDiscounts();
     }
 }

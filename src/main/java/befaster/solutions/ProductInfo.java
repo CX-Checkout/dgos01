@@ -6,6 +6,7 @@ import java.util.List;
 public class ProductInfo {
     private int pricePerUnit;
     private List<Discount> discounts;
+    private Discounts discounts;
 
     public ProductInfo(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
@@ -16,11 +17,11 @@ public class ProductInfo {
         return pricePerUnit;
     }
 
-    public boolean hasDiscount() {
+    public boolean hasDiscounts() {
         return discounts.size() > 0;
     }
 
-    public List<Discount> getDiscount() {
+    public List<Discount> getDiscounts() {
         return discounts;
     }
 

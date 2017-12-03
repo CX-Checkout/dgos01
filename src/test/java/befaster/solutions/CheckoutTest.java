@@ -60,5 +60,25 @@ public class CheckoutTest {
         assertThat(Checkout.checkout("FFFFF"), is(40));
         assertThat(Checkout.checkout("FFFFFF"), is(40));
         assertThat(Checkout.checkout("FFFFFFF"), is(50));
+        assertThat(Checkout.checkout("G"), is(20));
+        assertThat(Checkout.checkout("H"), is(10));
+        assertThat(Checkout.checkout("I"), is(35));
+        assertThat(Checkout.checkout("J"), is(60));
+        assertThat(Checkout.checkout("K"), is(80));
+        assertThat(Checkout.checkout("L"), is(90));
+        assertThat(Checkout.checkout("M"), is(15));
+        assertThat(Checkout.checkout("N"), is(40));
+        assertThat(Checkout.checkout("O"), is(10));
+        assertThat(Checkout.checkout("P"), is(50));
+        assertThat(Checkout.checkout("Q"), is(30));
+        assertThat(Checkout.checkout("R"), is(50));
+        assertThat(Checkout.checkout("S"), is(30));
+        assertThat(Checkout.checkout("T"), is(20));
+        assertThat(Checkout.checkout("U"), is(40));
+        assertThat(Checkout.checkout("V"), is(50));
+        assertThat(Checkout.checkout("W"), is(20));
+        assertThat(Checkout.checkout("X"), is(90));
+        assertThat(Checkout.checkout("Y"), is(10));
+        assertThat(Checkout.checkout("Z"), is(50));
     }
 }

@@ -15,7 +15,7 @@ public class Catalog {
         values.put('A', productInfo);
 
         productInfo = new ProductInfo(30);
-        productInfo.addDiscount(new Discount(2, 15));
+        productInfo.addDiscount(2, 15);
         values.put('B', productInfo);
 
         values.put('C', new ProductInfo(20));

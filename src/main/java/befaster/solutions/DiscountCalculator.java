@@ -39,8 +39,10 @@ public class DiscountCalculator {
             int index = 0;
             while (candidates.size() < packDiscount.getNumberOfItems() && index < packDiscount.getNumberOfItems()) {
                 char otherItem = packDiscount.getItems()[index];
-                if (basket.contains(otherItem) && basket.getNumberOfItemsFor(otherItem) > 0) {
-                    candidates.add(otherItem);
+                if (item != otherItem) {
+                    if (basket.contains(otherItem) && basket.getNumberOfItemsFor(otherItem) > 0) {
+                        candidates.add(otherItem);
+                    }
                 }
                 index++;
             }

@@ -1,9 +1,12 @@
 package befaster.solutions;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+
 public class ProductInfo {
     private int pricePerUnit;
     private Discounts amountDiscounts;
-    private ProductDiscount productDiscount;
+    private Optional<ProductDiscount> productDiscount;
 
     public ProductInfo(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
@@ -23,6 +26,14 @@ public class ProductInfo {
     }
 
     public void addProductDiscount(int numberOfItems, char itemToDiscount) {
-        productDiscount = new ProductDiscount(numberOfItems, itemToDiscount);
+        productDiscount = Optional.of(new ProductDiscount(numberOfItems, itemToDiscount));
+    }
+
+    public boolean hasProductDiscount() {
+        return productDiscount.isPresent();
+    }
+
+    public ProductDiscount getProductDiscount() {
+        return productDiscount.get();
     }
 }

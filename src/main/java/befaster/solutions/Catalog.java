@@ -35,4 +35,13 @@ public class Catalog {
         ProductInfo productInfo = values.get(item);
         return productInfo.getAmountDiscounts();
     }
+
+    public boolean hasProductDiscount(char item) {
+        ProductInfo productInfo = values.get(item);
+        return productInfo.hasProductDiscount();
+    }
+
+    public ProductDiscount getProductDiscount(char item) {
+        return values.get(item).getProductDiscount();
+    }
 }

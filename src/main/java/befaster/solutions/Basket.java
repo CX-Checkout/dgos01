@@ -26,4 +26,8 @@ public class Basket {
     public int getNumberOfItemsFor(char item) {
         return quantityPerProduct.get(item);
     }
+
+    public boolean contains(char item) {
+        return quantityPerProduct.containsKey(item);
+    }
 }

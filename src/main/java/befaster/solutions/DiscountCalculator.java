@@ -20,13 +20,13 @@ public class DiscountCalculator {
             if (catalog.hasProductDiscount(item)) {
                 ProductDiscount productDiscount = catalog.getProductDiscount(item);
                 if (numberOfItems >= productDiscount.getNumberOfItems()) {
-                    if (basket.contains(productDiscount.getProductToDiscount())) {
+                    if (basket.contains(productDiscount.getItemToDiscount())) {
                         int packs = numberOfItems / productDiscount.getNumberOfItems();
-                        int availableProductsToDiscount = basket.getNumberOfItemsFor(productDiscount.getProductToDiscount());
+                        int availableProductsToDiscount = basket.getNumberOfItemsFor(productDiscount.getItemToDiscount());
                         if (availableProductsToDiscount >= packs)
-                            total += packs * catalog.getPriceFor(productDiscount.getProductToDiscount());
+                            total += packs * catalog.getPriceFor(productDiscount.getItemToDiscount());
                         else
-                            total += availableProductsToDiscount * catalog.getPriceFor(productDiscount.getProductToDiscount());
+                            total += availableProductsToDiscount * catalog.getPriceFor(productDiscount.getItemToDiscount());
                     }
                 }
             }

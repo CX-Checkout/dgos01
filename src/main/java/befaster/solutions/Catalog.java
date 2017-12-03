@@ -42,6 +42,7 @@ public class Catalog {
     }
 
     public ProductDiscount getProductDiscount(char item) {
-        return values.get(item).getProductDiscount();
+        ProductInfo productInfo = values.get(item);
+        return productInfo.getProductDiscount();
     }
 }

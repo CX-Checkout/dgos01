@@ -11,6 +11,7 @@ public class ProductInfo {
     public ProductInfo(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
         this.amountDiscounts = new Discounts();
+        this.productDiscount = Optional.empty();
     }
 
     public int getPricePerUnit() {
